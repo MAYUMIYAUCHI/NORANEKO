@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action='' method='POST' enctype="multipart/form-data">{% csrf_token %}
+<p>タイトル：<input type='text' name='title'></p>
+<p>コメント：<input type='text' name='content'></p>
+<input type='submit' value='投稿'>
+</form>
+{% endblock content %}

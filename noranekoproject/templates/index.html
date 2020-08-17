@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block customcss %}
+{% endblock customcss %}
+{% block header %}
+
+
+  <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+    <div class="container">
+      <span class="skiplink-text">Skip to main content</span>
+    </div>
+  </a>
+     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+  <a class="navbar-brand" href="#">ナビゲーションバー</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+     <form class="form-inline my-2 my-lg-0">
+      <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"> -->
+      <input class="form-control mr-sm-2" type="text" placeholder="検索" aria-label="検索">
+      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
+    </form>
+  </div>
+</nav>
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">保護ねこを家族に</h1>
+      <p>日本の里親を探している猫たちのボランティア団体やカフェを探せます。</p>
+      <img src="images/topheader.jpg">
+    </div>
+  </div>
+{% endblock header %}
+{% block content %}
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <!-- <h2>Heading</h2> -->
+        <h2>都道府県別　譲渡団体</h2>
+        <p>都道府県名からお近くの施設を探せます。</p>
+        <img src="images/japan_map.png"> 
+          <table>
+            <tr><td><a href="#"　style="text-decoration:none;" target="_blank">北海道</a></td></tr>
+            <tr><td><a href="#"　style="text-decoration:none;" target="_blank">青森</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">岩手</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">宮城</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">秋田</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">山形</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">福島</a></td></tr>
+            <tr><td><a href="#"　style="text-decoration:none;" target="_blank">東京</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">茨城</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">神奈川</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">栃木</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">千葉</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">群馬</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">山梨</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">埼玉</a></td></tr>
+            <tr><td><a href="#"　style="text-decoration:none;" target="_blank">新潟</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">長野</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">富山</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">石川</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">福井</a></td></tr>
+            <tr><td><a href="#"　style="text-decoration:none;" target="_blank">静岡</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">岐阜</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">愛知</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">三重</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">滋賀</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">京都</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">兵庫</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">大阪</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">奈良</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">和歌山</a></td></tr>
+            <tr><td><a href="#"　style="text-decoration:none;" target="_blank">鳥取</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">島根</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">岡山</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">広島</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">山口</a></td></tr>
+            <tr><td><a href="#"　style="text-decoration:none;" target="_blank">香川</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">愛媛</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">徳島</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">高知</a></td></tr>
+            <tr><td><a href="#"　style="text-decoration:none;" target="_blank">福岡</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">佐賀</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">長崎</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">熊本</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">大分</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">宮崎</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">鹿児島</a></td></tr>
+            <tr><td><a href="#"　style="text-decoration:none;" target="_blank">沖縄</a></td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="mapimage"><img src="#"></div>
+  
+      <div class="chat">
+        <button type="button" class="btn btn-outline-secondary"　img src="#">相談・雑談</button>
+      </div>
+      <div class="pictuer">
+        <button type="button" class="btn btn-outline-secondary" img src="#">写真投稿</button>
+      </div>
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->
+
+</main>
+
+<footer class="container">
+  <p>&copy; Company 2017-2018</p>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>
+  window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery-slim.min.js"><\/script>')
+</script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script><script src="/docs/4.5/assets/js/vendor/anchor.min.js"></script>
+<script src="/docs/4.5/assets/js/vendor/clipboard.min.js"></script>
+<script src="/docs/4.5/assets/js/vendor/bs-custom-file-input.min.js"></script>
+<script src="/docs/4.5/assets/js/src/application.js"></script>
+<script src="/docs/4.5/assets/js/src/search.js"></script>
+<script src="/docs/4.5/assets/js/src/ie-emulation-modes-warning.js"></script>
+{% endblock content %}
