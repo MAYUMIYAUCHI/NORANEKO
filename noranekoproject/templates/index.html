@@ -6,6 +6,7 @@
 
 
   <a id="skippy" class="sr-only sr-only-focusable" href="#content">
+
     <div class="container">
       <span class="skiplink-text">Skip to main content</span>
     </div>
@@ -34,7 +35,8 @@
     <div class="container">
       <h1 class="display-3">保護ねこを家族に</h1>
       <p>日本の里親を探している猫たちのボランティア団体やカフェを探せます。</p>
-      <img src="images/topheader.jpg">
+      {% load static %}
+      <img src="{% static "top_header.jpg" %}">
     </div>
   </div>
 {% endblock header %}
@@ -47,7 +49,8 @@
         <!-- <h2>Heading</h2> -->
         <h2>都道府県別　譲渡団体</h2>
         <p>都道府県名からお近くの施設を探せます。</p>
-        <img src="images/japan_map.png"> 
+         {% load static %}
+          <img src="{% static "japan_map.png" %}">
           <table>
             <tr><td><a href="#"　style="text-decoration:none;" target="_blank">北海道</a></td></tr>
             <tr><td><a href="#"　style="text-decoration:none;" target="_blank">青森</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">岩手</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">宮城</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">秋田</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">山形</a></td><td><a href="#"　style="text-decoration:none;" target="_blank">福島</a></td></tr>
