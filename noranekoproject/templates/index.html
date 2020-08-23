@@ -4,6 +4,12 @@
 {% endblock customcss %}
 {% block header %}
 
+  {% load static %}
+    <img src="{% static "top_header.jpg" %}">
+    <h1 class="display-4">保護ねこを家族に</h1>
+    <p class="lead">日本の里親を探している猫たちのボランティア団体やカフェを探せます。</p>
+  </div>
+
 
   <a id="skippy" class="sr-only sr-only-focusable" href="#content">
 
@@ -30,15 +36,7 @@
 
 <main role="main">
 
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">保護ねこを家族に</h1>
-      <p>日本の里親を探している猫たちのボランティア団体やカフェを探せます。</p>
-      {% load static %}
-      <img src="{% static "top_header.jpg" %}">
-    </div>
-  </div>
+
 {% endblock header %}
 {% block content %}
 
