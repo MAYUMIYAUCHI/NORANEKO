@@ -15,5 +15,6 @@
     <p>タイトル：{{ object.title }}</p>
     <p>コメント：{{ object.content }}</p>
   </div>
+  <a href="{% url 'create_chat' comment.pk %}" target="_blank" rel="nofollow">返信する</a>
 </div>
 {% endblock content%}
