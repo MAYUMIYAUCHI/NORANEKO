@@ -21,7 +21,7 @@
         {% csrf_token %}
 
         <button type="submit" class="btn-link">送信</button>
-        <a class="button btn-link" href="{% url 'detail_chat.html' %}">送信せずに戻る</a>
+        <a class="button btn-link" href="{% url 'detail_chat.html' %}"target="_blank" rel="nofollow">返信する</a>
     </form>
       
 {% endblock content %}

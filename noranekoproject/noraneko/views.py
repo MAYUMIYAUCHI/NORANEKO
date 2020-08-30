@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from .models import NekoModel,Replay_chat
+from .models import NekoModel,Reply_chat
+from .forms import ReplyCreateForm 
 
 
 # Create your views here.
@@ -25,22 +26,21 @@ class CreateChat(CreateView):
 
 class Replay_chat(CreateView):
     """コメントへの返信作成ビュー。"""
-    model = Reply
+    model = Reply_chat
     form_class = ReplyCreateForm
     template_name = 'create_chat.html'
 
     def form_valid(self, form):
-        comment_pk = self.kwargs['pk']
-        comment = get_object_or_404(Comment, pk=comment_pk)
+        post_pk = self.kwargs['pk']
+        post = get_object_or_404(NekoModel, pk=post_pk)
         reply = form.save(commit=False)
-        reply.target = comment
+        reply.target = post
         reply.save()
-        return redirect('detail_chat', pk=comment.target.pk)
+        return redirect('detail_chat', pk=post_pk)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        comment_pk = self.kwargs['pk']
-        comment = get_object_or_404(Comment, pk=comment_pk)
-        context['post'] = comment.target
+        context['post'] = get_object_or_404(NekoModel, pk=self.kwargs['pk'])
         return context
+
 

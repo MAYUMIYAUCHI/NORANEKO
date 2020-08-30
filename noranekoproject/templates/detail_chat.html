@@ -16,5 +16,6 @@
     <p>コメント：{{ object.content }}</p>
   </div>
   <a href="{% url 'create_chat' comment.pk %}" target="_blank" rel="nofollow">返信する</a>
+  <a href="{% url 'good' object.pk %}" class="btn btn-primary " role="button" aria-pressed="true">いいね</a>
 </div>
 {% endblock content%}
