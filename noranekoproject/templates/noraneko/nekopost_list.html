@@ -1,0 +1,20 @@
+{% extends '../base.html' %}
+
+{% block customcss %}
+{% endblock customcss %}
+
+{% block header %}
+<div class="alert alert-warning" role="alert">相談・雑談</div>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+    {% for item in object_list %}
+    <div class="card" style="width: 18rem;">
+        <ul>
+            <li>{{item.title}}</li>
+        </ul>
+    </div>
+    {% endfor%}
+</div>
+{% endblock content %}

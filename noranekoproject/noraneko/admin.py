@@ -14,6 +14,6 @@ class PostCommentAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(models.NekoPostModel)
+admin.site.register(models.NekoPost)
 admin.site.register(models.PostComment, PostCommentAdmin)
 admin.site.register(models.ReplyComment)
