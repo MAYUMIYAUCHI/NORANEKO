@@ -1,0 +1,17 @@
+{% extends '../base.html' %}
+
+{% block customcss %}
+{% endblock customcss %}
+
+{% block header %}
+<div class="alert alert-warning" role="alert">投稿詳細</div>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+    <div class="card" style="width: 18rem;">
+        <h3>{{nekopost.title}}</h3>
+        <p>{{nekopost.content}}</p>
+    </div>
+</div>
+{% endblock content %}
