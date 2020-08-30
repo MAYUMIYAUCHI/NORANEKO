@@ -10,11 +10,14 @@
 {% block content %}
 <div class='container'>
     {% for item in object_list %}
-    <div class="card" style="width: 18rem;">
-        <ul>
-            <li>{{item.title}}</li>
-        </ul>
-    </div>
+    <a href="{% url 'post_detail' item.pk %}">
+        <div class="card" style="width: 18rem;">
+            <h3>{{item.title}}</h3>
+            <p>{{item.content}}</p>
+        </div>
+    </a>
+    {% empty %}
+    <p class="post">まだ記事がありません。</p>
     {% endfor%}
 </div>
 {% endblock content %}

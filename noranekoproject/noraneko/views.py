@@ -8,3 +8,8 @@ from noraneko.models import NekoPost
 class NekoPostListView(generic.ListView):
     """投稿したコンテンツの一覧を表示する"""
     model = NekoPost
+
+
+class NekoPostDetailView(generic.DetailView):
+    """投稿したコンテンツの一覧を表示する"""
+    model = NekoPost
