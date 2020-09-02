@@ -23,13 +23,15 @@ class PostCommentCreateView(generic.CreateView):
 
     def form_valid(self, form):
         """データがPOSTされる時に呼ばれるメソッド"""
-        print(self.kwargs['pk'])
-        nekopost_pk = self.kwargs['pk']
-        nekopost = get_object_or_404(NekoPost, pk=nekopost_pk)
+        # プログラムで自動的にどの投稿に関するコメントなのかを指定
+        # nekopost_pk = self.kwargs['pk']
+        # nekopost = get_object_or_404(NekoPost, pk=nekopost_pk)
+        nekopost = get_object_or_404(NekoPost, pk=self.kwargs['pk'])
         comment = form.save(commit=False)
         comment.target = nekopost
         comment.save()
-        return redirect('post_detail', pk=nekopost_pk)
+        # return redirect('post_detail', pk=nekopost_pk)
+        return redirect('post_detail', pk=self.kwargs['pk'])
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

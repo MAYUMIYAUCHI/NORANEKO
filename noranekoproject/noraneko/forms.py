@@ -7,6 +7,7 @@ class CommentCreateForm(forms.ModelForm):
 
     class Meta:
         model = PostComment
+        # データとしては必要だがユーザが入力してほしくないところ
         exclude = ('target', 'created_at')
         widgets = {
             'text': forms.Textarea(
