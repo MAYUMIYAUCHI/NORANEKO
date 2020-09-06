@@ -8,7 +8,7 @@ class ReplyCreateForm(forms.ModelForm):
     class Meta:
         model = Reply_Chat
         fields = ('name','text')
-        exclude = ('good')
+        exclude = ('good',)
         labels = {
           'name':'名前',
           'text':'コメント'

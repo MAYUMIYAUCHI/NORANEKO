@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
+{% block customcss%}
+{% endblock customcss%}
 
 {% block content %}
-{% comment %} <form action='' method='POST' enctype="multipart/form-data">{% csrf_token %}
-<p>タイトル：<input type='text' name='title'></p>
-<p>コメント：<input type='text' name='content'></p>
-<input type='submit' value='投稿'> {% endcomment %}
-{% comment %} </form> {% endcomment %}
 <form action="" method="POST" id="comment-form">
     {{ form.non_field_errors }}
     {% for field in form %}
@@ -21,7 +18,7 @@
         {% csrf_token %}
 
         <button type="submit" class="btn-link">送信</button>
-        <a class="button btn-link" href="{% url 'detail_chat.html' %}">送信せずに戻る</a>
+        <a class="button btn-link" href="{% url 'list_chat' %}">戻る</a>
     </form>
       
 {% endblock content %}
