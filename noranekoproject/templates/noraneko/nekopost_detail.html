@@ -1,0 +1,52 @@
+{% extends '../base.html' %}
+
+{% block customcss %}
+{% endblock customcss %}
+
+{% block header %}
+<div class="alert alert-warning" role="alert">投稿詳細</div>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+    <div class="card" style="width: 18rem;">
+        <h3>{{nekopost.title}}</h3>
+        <p>{{nekopost.content}}</p>
+    </div>
+</div>
+<section id="comment">
+    <h2 class="section-title">Comment</h2>
+    <p><a href="{% url 'comment_create' nekopost.id %}">記事にコメントする</a></p>
+    <!-- コメント一覧 -->
+    {% for comment in nekopost.postcomment_set.all %}
+    <div class="comment">
+        <h3>{{ comment.name }}</h3>
+        <time class="updated_at" datetime="{{ comment.created_at | date:'Y-m-d' }}">{{ comment.created_at}}</time>
+        <div class="description markdown-body">
+            {{ comment.text }}
+        </div>
+        <p>
+            <a href="" target="_blank" rel="nofollow">返信する</a>
+        </p>
+    </div>
+
+
+    <!-- リプライ一覧 -->
+    {% for reply in comment.reply_set.all %}
+    <div class="reply">
+        <h3>{{ reply.name }}</h3>
+        <time class="updated_at" datetime="{{ reply.created_at | date:'Y-m-d' }}">{{ reply.created_at}}</time>
+        <div class="description markdown-body">
+            {{ reply.text }}
+        </div>
+    </div>
+    {% endfor %}
+    <!-- リプライ一覧終わり -->
+
+    {% empty %}
+    <p>まだコメントはありません。</p>
+    {% endfor %}
+    <!-- コメント一覧終わり -->
+</section>
+
+{% endblock content %}

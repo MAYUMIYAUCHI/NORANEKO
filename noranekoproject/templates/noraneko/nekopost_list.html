@@ -1,0 +1,23 @@
+{% extends '../base.html' %}
+
+{% block customcss %}
+{% endblock customcss %}
+
+{% block header %}
+<div class="alert alert-warning" role="alert">相談・雑談</div>
+{% endblock header %}
+
+{% block content %}
+<div class='container'>
+    {% for item in object_list %}
+    <a href="{% url 'post_detail' item.pk %}">
+        <div class="card" style="width: 18rem;">
+            <h3>{{item.title}}</h3>
+            <p>{{item.content}}</p>
+        </div>
+    </a>
+    {% empty %}
+    <p class="post">まだ記事がありません。</p>
+    {% endfor%}
+</div>
+{% endblock content %}

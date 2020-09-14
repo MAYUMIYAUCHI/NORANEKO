@@ -1,13 +1,13 @@
 
 from django.urls import path
-from .views import indexfunc,list_chatfunc,detail_chatfunc,CreateChat,Reply_Chat_views
+from .views import NekoPostListView,NekoPostDetailView,PostCommentCreateView,ReplyCommentView
 
 
 urlpatterns = [
-    path('index/',indexfunc, name='index' ),
-    path('list_chat/',list_chatfunc, name='list_chat'),
-    path('create_chat/',CreateChat.as_view(), name='create_chat'),
-    path('detail_chat/<int:pk>',detail_chatfunc, name='detail_chat'),
-    path('reply_chat/<int:pk>',Reply_Chat_views.as_view(), name='reply_chat')
+    path('post_list/',NekoPostListView.as_view(), name='post_list'),
+    path('post_list/<int:pk>/',NekoPostDetailView.as_view(), name='post_detail'),
+    path('comment_create/<int:pk>',PostCommentCreateView.as_view(), name='comment_create'),
+    path('reply_comment/<int:pk>', ReplyCommentView.as_view(), name='reply_comment'),
+   
 
 ]

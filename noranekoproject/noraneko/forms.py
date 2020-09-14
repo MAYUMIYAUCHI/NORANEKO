@@ -1,19 +1,24 @@
+  
 from django import forms
-from .models import Reply_Chat
+from noraneko.models import PostComment
 
-class ReplyCreateForm(forms.ModelForm):
 
-    """返信コメント投稿フォーム"""
+class CommentCreateForm(forms.ModelForm):
+    """コメント投稿フォーム"""
 
     class Meta:
-        model = Reply_Chat
-        fields = ('name','text')
-        exclude = ('good',)
-        labels = {
-          'name':'名前',
-          'text':'コメント'
+        model = PostComment
+        # データとしては必要だがユーザが入力してほしくないところ
+        exclude = ('target', 'created_at')
+        widgets = {
+            'text': forms.Textarea(
+                attrs={
+                    'placeholder': 'コメントを入力して下さい。'}
+            )
         }
-        help_texts = {
-            'name': '名前を入力',
-            'text': 'コメントを入力'
-        }
+
+class ReplyCreateForm(forms.ModelForm):
+    class Meta:
+        model = PostComment
+        exclude = ('target','created_at')
+
