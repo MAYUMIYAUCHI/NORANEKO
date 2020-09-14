@@ -16,7 +16,7 @@
 </div>
 <section id="comment">
     <h2 class="section-title">Comment</h2>
-    <p><a href="{% url 'comment_create' nekopost.id %}">記事にコメントする</a></p>
+    <p><a href="{% url 'comment_create' nekopost.id %}" target="_blank" rel="nofollow">記事にコメントする</a></p>
     <!-- コメント一覧 -->
     {% for comment in nekopost.postcomment_set.all %}
     <div class="comment">
@@ -26,23 +26,20 @@
             {{ comment.text }}
         </div>
         <p>
-            <a href="" target="_blank" rel="nofollow">返信する</a>
+            <a href="{% url 'reply_comment' comment.id %}" target="_blank" rel="nofollow">返信する</a>
         </p>
     </div>
-
-
-    <!-- リプライ一覧 -->
-    {% for reply in comment.reply_set.all %}
-    <div class="reply">
-        <h3>{{ reply.name }}</h3>
-        <time class="updated_at" datetime="{{ reply.created_at | date:'Y-m-d' }}">{{ reply.created_at}}</time>
-        <div class="description markdown-body">
-            {{ reply.text }}
+        <!-- リプライ一覧 -->
+        {% for reply in comment.replycomment_set.all %}
+        <div class="reply">
+            <p>{{ reply.name }}</p>
+            <time class="updated_at" datetime="{{ reply.created_at | date:'Y-m-d' }}">{{ reply.created_at}}</time>
+            <div class="description markdown-body">
+                {{ reply.text }}
+            </div>
         </div>
-    </div>
-    {% endfor %}
-    <!-- リプライ一覧終わり -->
-
+        {% endfor %}
+        <!-- リプライ一覧終わり -->
     {% empty %}
     <p>まだコメントはありません。</p>
     {% endfor %}

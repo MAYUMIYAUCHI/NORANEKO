@@ -1,6 +1,5 @@
-  
 from django import forms
-from noraneko.models import PostComment
+from noraneko.models import PostComment, ReplyComment
 
 
 class CommentCreateForm(forms.ModelForm):
@@ -18,7 +17,9 @@ class CommentCreateForm(forms.ModelForm):
         }
 
 class ReplyCreateForm(forms.ModelForm):
+    """コメントに対する返信フォーム"""
+
     class Meta:
-        model = PostComment
+        model = ReplyComment
         exclude = ('target','created_at')
 

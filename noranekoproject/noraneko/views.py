@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from .models import NekoPost,PostComment,ReplyComment
 from django.views import generic
-from noraneko.forms import CommentCreateForm
+from noraneko.forms import CommentCreateForm, ReplyCreateForm
 
 
 # Create your views here.
@@ -33,17 +33,24 @@ class PostCommentCreateView(generic.CreateView):
     context = super().get_context_data(**kwargs)
     context['nekopost'] = get_object_or_404(NekoPost,pk=self.kwargs['pk'])
     return context
+
     
-class ReplyComment(generic,CreateViwe):
-  model = ReplyCreate
-  form_class = ReplyCommentForm
+class ReplyCommentView(generic.CreateView):
+  model = ReplyComment
+  form_class = ReplyCreateForm
   
   def form_valid(self,form):
     comment_pk = self.kwargs['pk']
-    comment = get_object_or_404(pk=comment_pk)
+    comment = get_object_or_404(PostComment,pk=comment_pk)
     reply = form.save(commit=False)
     reply.target = comment
     reply.save()
     return redirect('post_detail',pk=comment.target.pk)
+
+  def get_context_data(self,**kwargs):
+    context = super().get_context_data(**kwargs)
+    comment = get_object_or_404(PostComment,pk=self.kwargs['pk'])
+    context['post'] = comment.target
+    return context
  
 
